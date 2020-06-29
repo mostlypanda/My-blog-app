@@ -1,0 +1,25 @@
+{
+  "name": "my-blog-app",
+  "version": "1.0.0",
+  "description": "A blog web-application where you can publish your blogs for free as well as read anyone's blog",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mostlypanda/My-blog-app.git"
+  },
+  "author": "sarthak mittal",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mostlypanda/My-blog-app/issues"
+  },
+  "homepage": "https://github.com/mostlypanda/My-blog-app#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "nodemon": "^2.0.4",
+    "startbootstrap-clean-blog": "^5.0.9"
+  }
+}
