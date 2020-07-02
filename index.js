@@ -21,6 +21,12 @@ mongoose.connect(config.DATABASE,{useNewUrlParser : true, useUnifiedTopology: tr
     console.log(err);
 });
 
+app.get('/',(req,res)=>{
+    res.json({"message": "welcome to this blog app"});
+});
+
+require('./routes/routes')(app);
+
 
 
 const PORT=3000||process.env.PORT;
