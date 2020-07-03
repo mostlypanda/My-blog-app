@@ -2,7 +2,7 @@ const mongoose=require('mongoose');
 const jwt=require('jsonwebtoken');
 const bcrypt=require('bcrypt');
 const confiq=require('../config/config').get(process.env.NODE_ENV);
-const Salt=10;
+const salt=10;
 
 const userSchema=mongoose.Schema({
     firstname:{
@@ -46,6 +46,7 @@ userSchema.pre('save',function(next){
             bcrypt.hash(user.password,salt,function(err,hash){
                 if(err) return next(err);
                 user.password=hash;
+                user.password2=hash;
                 next();
             })
 
