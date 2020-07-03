@@ -61,8 +61,21 @@ userSchema.pre('save',function(next){
 userSchema.methods.comparepassword=function(password,cb){
     bcrypt.compare(password,this.password,function(err,isMatch){
         if(err) return cb(next);
-        cb(nul,isMatch);
+        cb(null,isMatch);
     });
+}
+
+// generate token
+
+userSchema.methods.generateToken=function(cb){
+    var user =this;
+    var token=jwt.sign(user._id.toHexString(),confiq.SECRET);
+
+    user.token=token;
+    user.save(function(err,user){
+        if(err) return cb(err);
+        cb(null,user);
+    })
 }
 
 // find by token

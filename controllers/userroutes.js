@@ -1,5 +1,5 @@
 const User=require('../models/user');
-const { json } = require('body-parser');
+const auth =require('../controllers/auth');
 
 exports.signup=function(req,res){
     const newuser=new User(req.body);
@@ -23,6 +23,22 @@ exports.signup=function(req,res){
 
 exports.login=function(req,res){
 
+    User.findOne({email : req.body.email},function(err,user){
+        if(!user) return res.status(400).json({isAuth: false, message:"Auth failed, email not found"});
+
+        user.comparepassword(req.body.password,function(err,isMatch){
+            if(!isMatch) return res.status(400).json({isAuth: false, message:"password doesn't match"});
+        });
+        
+        user.generateToken(function(err,user){
+            if(err) return res.status(400).send(err);
+            res.cookie('auth',user.token).json({
+                isAuth : true,
+                id : user._id,
+                email: user.email
+            });
+        });
+    });
 };
 
 exports.logout=function(req,res){
