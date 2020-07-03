@@ -40,7 +40,3 @@ exports.login=function(req,res){
         });
     });
 };
-
-exports.auth=function(req,res){
-
-};
