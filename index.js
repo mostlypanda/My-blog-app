@@ -10,8 +10,6 @@ app.use(bodyparser.urlencoded({extended : false}));
 app.use(bodyparser.json());
 app.use(cookieparser());
 
-const {User}=require('./models/user');
-
 
 mongoose.Promise=global.Promise;
 mongoose.connect(config.DATABASE,{useNewUrlParser : true, useUnifiedTopology: true })
