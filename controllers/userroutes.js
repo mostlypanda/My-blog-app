@@ -41,10 +41,6 @@ exports.login=function(req,res){
     });
 };
 
-exports.logout=function(req,res){
-
-};
-
 exports.auth=function(req,res){
 
 };
