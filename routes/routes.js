@@ -6,6 +6,7 @@ module.exports=(app)=>{
     //user routes
     app.post('/api/register',user.signup);
     app.post('/api/login',user.login);
+    app.put('/api/forgot',user.forgotpassword);
     app.get('/api/logout',auth,function(req,res){
         req.user.deleteToken(req.token,(err,user)=>{
             if(err) return res.status(400).send(err);
@@ -21,6 +22,8 @@ module.exports=(app)=>{
             
         })
     });
+    
     //blog routes
 
 }
+
