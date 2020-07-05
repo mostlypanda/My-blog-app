@@ -4,7 +4,7 @@ const confiq=require('../config/config').get(process.env.NODE_ENV);
 const nodemailer=require('nodemailer');
 const user = require('../models/user');
 const bcrypt=require('bcrypt');
-
+const Blog=require('../models/blog');
 
 // signup user
 exports.signup=function(req,res){
@@ -95,3 +95,22 @@ exports.forgotpassword=function(req,res){
 
 }
 
+exports.getUser=function(req,res){
+    const id=req.query.id;
+
+    User.findById(id,function(err,doc){
+        if(err) return res.status(400).send(err);
+        res.status(200).json({
+            name: doc.firstname+" "+doc.lastname
+
+        });
+    });
+};
+
+
+exports.userblogs=function(req,res){
+    Blog.find({_id : req.query.id}).exec((err,doc)=>{
+        if(err) return res.status(400).send(err);
+        res.send(doc);
+    })
+}
