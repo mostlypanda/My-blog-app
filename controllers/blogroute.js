@@ -14,7 +14,7 @@ exports.getBlog=function(req,res){
 // get all blogs
 exports.allBlogs=function(req,res){
     Blog.find(function(err,doc){
-        if(err) return status(400).send(err);
+        if(err) return res.status(400).send(err);
         res.status(200).json(doc);
     })
 };
@@ -34,6 +34,13 @@ exports.createBlog=function(req,res){
 
 //update a blog
 exports.updateBlog=function(req,res){
+    const id=req.query.id;
+
+    Blog.findByIdAndUpdate(id,req.body,{new: true},function(err,doc){
+        if(err) return res.status(400).json(err);
+        res.status(202).json(doc);
+
+    })
 
 };
 

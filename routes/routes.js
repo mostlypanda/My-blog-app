@@ -29,7 +29,7 @@ module.exports=(app)=>{
     app.get('/api/getBlog',blog.getBlog);       //get blog by id
     app.get('/api/Blog',blog.allBlogs);         //get all blogs
     app.post('/api/createBlog',blog.createBlog);// create one 
-    app.post('/api/updateBlog',blog.updateBlog);// update one
+    app.put('/api/updateBlog',blog.updateBlog);// update one
     app.delete('/api/deleteBlog',blog.deleteBlog);// delete one
 
 }
