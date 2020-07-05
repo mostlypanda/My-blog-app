@@ -26,11 +26,11 @@ module.exports=(app)=>{
     });
     
     //blog routes
-    app.get('/api/getBlog',blog.getBlog);
-    app.get('/api/Blog',blog.allBlogs);
-    app.post('/api/createBlog',blog.createBlog);
-    app.post('/api/updateBlog',blog.updateBlog);
-    app.delete('/api/deleteBlog',blog.deleteBlog);
+    app.get('/api/getBlog',blog.getBlog);       //get blog by id
+    app.get('/api/Blog',blog.allBlogs);         //get all blogs
+    app.post('/api/createBlog',blog.createBlog);// create one 
+    app.post('/api/updateBlog',blog.updateBlog);// update one
+    app.delete('/api/deleteBlog',blog.deleteBlog);// delete one
 
 }
 
