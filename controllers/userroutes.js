@@ -5,6 +5,8 @@ const nodemailer=require('nodemailer');
 const user = require('../models/user');
 const bcrypt=require('bcrypt');
 
+
+// signup user
 exports.signup=function(req,res){
     const newuser=new User(req.body);
     console.log(newuser);
@@ -25,6 +27,8 @@ exports.signup=function(req,res){
     })
 };
 
+
+// login user
 exports.login=function(req,res){
 
     User.findOne({'email':req.body.email},function(err,user){
@@ -49,7 +53,7 @@ var otp = Math.random();
 otp = otp * 1000000;
 otp = parseInt(otp);
 console.log(otp);
-            
+ // forgot password           
 exports.forgotpassword=function(req,res){
     const Email= req.body.email;
 
