@@ -3,12 +3,20 @@ const User=require('../models/user');
 
 // get blog by id
 exports.getBlog=function(req,res){
-    
+    const id=req.query.id;
+
+    Blog.findById(id,function(err,doc){
+        if(err)return status(400).send(err);
+        res.send(doc);
+    })
 };
 
 // get all blogs
 exports.allBlogs=function(req,res){
-
+    Blog.find(function(err,doc){
+        if(err) return status(400).send(err);
+        res.status(200).json(doc);
+    })
 };
 
 // create a blog
