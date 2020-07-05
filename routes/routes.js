@@ -4,6 +4,8 @@ module.exports=(app)=>{
     const {auth} =require('../controllers/auth');
 
     //user routes
+    app.get('/api/find',user.getUser);
+    app.get('/api/userblog',user.userblogs);
     app.post('/api/register',user.signup);  //register user
     app.post('/api/login',user.login);      //login user
     app.put('/api/forgot',user.forgotpassword);     //forgot password
