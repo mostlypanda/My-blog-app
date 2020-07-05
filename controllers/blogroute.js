@@ -40,13 +40,20 @@ exports.updateBlog=function(req,res){
         if(err) return res.status(400).json(err);
         res.status(202).json(doc);
 
-    })
+    });
 
 };
 
 //delete a blog
 exports.deleteBlog=function(req,res){
+    const id=req.query.id;
 
+    Blog.findByIdAndDelete(id,function(err,doc){
+        if(err) return res.status(400).json(err);
+        res.status(200).json({succes: "true",
+                doc
+        });
+    });
 };
 
 exports.getReviewer=function(req,res){
