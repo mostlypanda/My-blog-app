@@ -15,7 +15,7 @@ exports.getBlog=function(req,res){
 exports.allBlogs=function(req,res){
     Blog.find(function(err,doc){
         if(err) return res.status(400).send(err);
-        res.status(200).json(doc);
+        res.render('index',{blog:doc});
     })
 };
 

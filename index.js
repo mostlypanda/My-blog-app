@@ -3,12 +3,16 @@ const bodyparser=require('body-parser');
 const cookieparser=require('cookie-parser');
 const mongoose=require('mongoose');
 const config=require('./config/config').get(process.env.NODE_ENV);
+const hbs=require('hbs');
+const path=require('path');
 
 const app=express();
 
 app.use(bodyparser.urlencoded({extended : false}));
 app.use(bodyparser.json());
 app.use(cookieparser());
+app.set('views',path.join(__dirname,"views"));
+app.set('view engine','hbs');
 
 
 mongoose.Promise=global.Promise;
