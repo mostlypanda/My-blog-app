@@ -52,7 +52,7 @@ exports.login=function(req,res){
 var otp = Math.random();
 otp = otp * 1000000;
 otp = parseInt(otp);
-console.log(otp);
+//console.log(otp);
  // forgot password           
 exports.forgotpassword=function(req,res){
     const Email= req.body.email;
