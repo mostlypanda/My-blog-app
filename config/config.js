@@ -5,7 +5,7 @@ const config={
     },
     default:{
         SECRET : 'mysupersecretkey',
-        DATABASE: 'mongodb://localhost:27017/blog-app'
+        DATABASE: 'mongodb+srv://test:test@cluster0-bi1rv.mongodb.net/blog-app?retryWrites=true&w=majority'
     }
 }
 
